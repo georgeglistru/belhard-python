@@ -1,4 +1,4 @@
 line 1 main init
-line 2 main updated
+line 2 main updated 2
 line 3 main init
 line 4 test added
