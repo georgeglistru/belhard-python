@@ -1,4 +1,9 @@
 def rubles_str(rubles, cop):
+    if rubles > 1000:
+        raise ValueError("Поддерживается только до 1000 рублей")
+    if cop > 99:
+        raise ValueError("Копеек не может быть больше 99")
+
     res = ""
     if rubles in (1,):
         res += f"{rubles} рубль"
@@ -6,40 +11,38 @@ def rubles_str(rubles, cop):
         res += f"{rubles} рубля"
     elif rubles in range(5, 21):
         res += f"{rubles} рублей"
-    elif rubles % 100 in range(11,20):
+    elif rubles % 100 in range(11, 20):
         res += f" {rubles} рублей"
     elif rubles % 10 in (1,):
         res += f" {rubles} рубль"
-    elif rubles % 10 in (2,3,4):
+    elif rubles % 10 in (2, 3, 4):
         res += f" {rubles} рубля"
-    elif rubles <= 1000:
-        res += f" {rubles} рублей"
     else:
-        raise ValueError("Поддерживается тоько до 10 рублей")
+        res += f" {rubles} рублей"
 
     if cop == 0:
         res += ""
     elif cop in (1,):
         res += f" {cop} копейка"
-    elif cop in (2,3,4):
+    elif cop in (2, 3, 4):
         res += f" {cop} копейки"
-    elif cop in (5,6,7,8,9,10):
+    elif cop in (5, 6, 7, 8, 9, 10):
         res += f" {cop} копеек"
-    elif cop in range(5,21):
+    elif cop in range(5, 21):
         res += f" {cop} копеек"
     elif cop % 10 == 1:
         res += f" {cop} копейка"
-    elif cop % 10 in (2,3,4):
+    elif cop % 10 in (2, 3, 4):
         res += f" {cop} копейки"
-    elif cop < 100:
-        res += f" {cop} копеек"
     else:
-        raise ValueError("Копеек не может быть больше 99")
+        res += f" {cop} копеек"
+
     return res
+
 
 r = int(input("Введите кол-во рублей "))
 c = int(input("Введите кол-во копеек "))
-print(rubles_str(r,c))
+print(rubles_str(r, c))
 
 # print(rubles_str(1,0))
 # print(rubles_str(1,1))
@@ -56,4 +59,3 @@ print(rubles_str(r,c))
 #     print(rubles_str(10, _))
 # for _ in range(0, 1001) :
 #     print(rubles_str(_, 1))
-
