@@ -9,7 +9,7 @@ def check_login(login: str) -> bool:
     :param login:
     :return: true, если удовлетворяет правилам, false если нет
     """
-    if re.match("^\w{5,20}$", login):
+    if re.match("^[a-zA-Z0-9_]{5,20}$", login):
         return True
     else:
         return False
@@ -21,3 +21,4 @@ print(check_login("12345678901234567890"))
 print(check_login("123456789012345678901"))
 print(check_login("abAC1_"))
 print(check_login("abAC1_!"))
+print(check_login(",abAC1_"))
